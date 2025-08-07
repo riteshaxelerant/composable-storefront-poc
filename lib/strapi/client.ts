@@ -29,8 +29,8 @@ const strapiAuthLink = setContext((_, { headers }) => {
 
 // Strapi HTTP link
 const strapiHttpLink = createHttpLink({
-  uri: process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_URL || 'http://localhost:1337/graphql',
-  credentials: 'omit',
+  uri: '/api/strapi/graphql', // Use our API route proxy
+  credentials: 'same-origin',
 });
 
 // Strapi Apollo Client

@@ -93,15 +93,17 @@ This project has been restructured following VueStorefront best practices to cre
   - Author information and categories
   - Published dates
   - Responsive image handling
+- **Consistent Proxy Architecture**: All Strapi requests go through `/api/strapi/graphql` proxy
 
 ### ✅ Magento Integration
 - **Categories Listing**: `/categories` - Shows Magento category tree
-- **SSL Issue Resolved**: Fixed self-signed certificate issue
+- **SSL Issue Resolved**: Fixed self-signed certificate issue via proxy
 - **Hierarchical Display**: Shows nested categories with proper indentation
 - **Raw Data Rendering**: Successfully displays:
   - Category names, UIDs, levels
   - URL paths for navigation
   - Nested category structures
+- **Consistent Proxy Architecture**: All Magento requests go through `/api/magento/graphql` proxy
 
 ### ✅ Layout System
 - **Consistent Header/Footer**: Shows data source indicators
@@ -126,6 +128,7 @@ All new pages are working correctly:
 ### 1. **SSL Certificate Handling**
 - Fixed self-signed certificate issues with Magento
 - Added proper fetch configuration for Node.js environment
+- Implemented consistent proxy architecture for both Magento and Strapi
 - Graceful fallback for SSL validation
 
 ### 2. **GraphQL Client Optimization**

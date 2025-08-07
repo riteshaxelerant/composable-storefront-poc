@@ -117,6 +117,13 @@ react-nextjs-strapi-magento/
 - **Headers**: `Content-Type: application/json`
 - **Body**: Standard GraphQL query with variables
 
+#### **Strapi GraphQL Proxy**
+- **URL**: `http://localhost:3000/api/strapi/graphql`
+- **Method**: POST
+- **Description**: Proxies GraphQL requests to Strapi for consistent architecture
+- **Headers**: `Content-Type: application/json`
+- **Body**: Standard GraphQL query with variables
+
 #### **Content Resolution API**
 - **URL**: `http://localhost:3000/api/content/resolve`
 - **Method**: POST
@@ -201,6 +208,11 @@ curl -X POST http://localhost:3000/api/magento/graphql \
   -H "Content-Type: application/json" \
   -d '{"query":"query GetCategories { categoryList { id, uid, level, name, url_path } }"}'
 
+# Test Strapi GraphQL proxy
+curl -X POST http://localhost:3000/api/strapi/graphql \
+  -H "Content-Type: application/json" \
+  -d '{"query":"query GetArticles { articles { data { id, attributes { title, slug } } } }"}'
+
 # Test content resolution
 curl -X POST http://localhost:3000/api/content/resolve \
   -H "Content-Type: application/json" \
@@ -284,7 +296,7 @@ middleware.getAdapter('magento')?.setEnabled(false);
 
 ### **SSL Certificate Handling**
 - **Magento**: API route proxy handles self-signed certificates
-- **Strapi**: Direct connection to localhost
+- **Strapi**: API route proxy for consistent architecture and security
 - **Environment Variables**: Secure configuration management
 
 ### **Error Handling**

@@ -11,6 +11,7 @@ sequenceDiagram
     participant MagentoAdapter as Magento Adapter
     participant StrapiAdapter as Strapi Adapter
     participant MagentoAPI as Magento GraphQL
+    participant StrapiProxy as Strapi API Proxy
     participant StrapiAPI as Strapi GraphQL
     participant Component as React Component
 
@@ -45,11 +46,15 @@ sequenceDiagram
     
     Note over StrapiAdapter: Try: Article → Page
     
-    StrapiAdapter->>StrapiAPI: GET_ARTICLE_BY_SLUG
-    StrapiAPI-->>StrapiAdapter: No article found
+    StrapiAdapter->>StrapiProxy: GET_ARTICLE_BY_SLUG
+    StrapiProxy->>StrapiAPI: Forward query
+    StrapiAPI-->>StrapiProxy: No article found
+    StrapiProxy-->>StrapiAdapter: No article found
     
-    StrapiAdapter->>StrapiAPI: GET_PAGE_BY_SLUG
-    StrapiAPI-->>StrapiAdapter: Page found! ✅
+    StrapiAdapter->>StrapiProxy: GET_PAGE_BY_SLUG
+    StrapiProxy->>StrapiAPI: Forward query
+    StrapiAPI-->>StrapiProxy: Page found! ✅
+    StrapiProxy-->>StrapiAdapter: Page found! ✅
     
     StrapiAdapter-->>Middleware: ResolvedContent { type: 'page', source: 'strapi', data: {...} }
     

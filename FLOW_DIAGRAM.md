@@ -240,9 +240,25 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 }
 ```
 
-#### **6b. Strapi GraphQL (Direct)**
+**File: `pages/api/strapi/graphql.ts`**
+```typescript
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const { query, variables } = req.body;
+
+  const response = await fetch(process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query, variables }),
+  });
+
+  const data = await response.json();
+  return res.status(200).json(data);
+}
 ```
-strapiClient.query() → http://localhost:1337/graphql
+
+#### **6b. Strapi GraphQL (via API Route)**
+```
+strapiClient.query() → /api/strapi/graphql → http://localhost:1337/graphql
 ```
 
 ### **Phase 7: Content Resolution & Response**
