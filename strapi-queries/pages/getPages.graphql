@@ -1,0 +1,11 @@
+query GetPages($limit: Int, $start: Int) {
+  pages(pagination: { limit: $limit, start: $start }, sort: "title:asc") {
+    documentId
+    title
+    slug
+    seo {
+      metaTitle
+      metaDescription
+    }
+  }
+} 

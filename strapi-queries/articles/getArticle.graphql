@@ -1,0 +1,57 @@
+query GetSingleArticle($slug: String!) {
+  articles(filters: { slug: { eq: $slug } }) {
+    blocks {
+      __typename
+      ... on ComponentSharedMedia {
+        id
+        file {
+          documentId
+          url
+          name
+        }
+      }
+      ... on ComponentSharedQuote {
+        id
+        title
+        body
+      }
+      ... on ComponentSharedRichText {
+        id
+        body
+      }
+      ... on ComponentSharedSlider {
+        id
+        files {
+          alternativeText
+          documentId
+          name
+          url
+        }
+      }
+      ... on Error {
+        code
+        message
+      }
+    }
+    category {
+      description
+      documentId
+      name
+      slug
+    }
+    cover {
+      url
+      name
+      documentId
+      alternativeText
+      caption
+    }
+    slug
+    title
+    author {
+      name
+      email
+    }
+    documentId
+  }
+} 

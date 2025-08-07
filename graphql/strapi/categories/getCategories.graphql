@@ -1,0 +1,7 @@
+query GetCategories($limit: Int, $start: Int) {
+  categories(pagination: { limit: $limit, start: $start }, sort: "name:asc") {
+    documentId
+    name
+    slug
+  }
+} 

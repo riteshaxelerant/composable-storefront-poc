@@ -1,0 +1,142 @@
+query GetPage($slug: String!) {
+  pages(filters: { slug: { eq: $slug } }) {
+    documentId
+    title
+    slug
+    seo {
+      metaTitle
+      metaDescription
+    }
+    contentSections {
+      __typename
+      ... on ComponentSectionsHeroBanner {
+        id
+        herotitle: title
+        subtitle        
+        backgroundImage {      
+          alternativeText
+          caption
+          url
+        }
+        buttonText
+        buttonUrl
+      }
+      ... on ComponentSectionsFeatureGrid {
+        id
+        sectionTitle
+        features {
+          id
+          title
+          description
+          icon {
+            alternativeText
+            url
+          }
+        }
+      }
+      ... on ComponentSectionsPromotionalCta {
+        id
+        title
+        body
+        buttonText
+        buttonUrl
+      }
+      ... on ComponentSectionsImageCarousel {
+        id
+        images {
+          caption
+          alternativeText
+          url
+        }
+      }
+      ... on ComponentSectionsTestimonials {
+        id
+        sectionTitle
+        items {
+          id
+          quote
+          authorImage {
+            alternativeText
+            caption
+            url
+          }
+          authorName
+          authorTitle
+        }
+      }
+      ... on ComponentSectionsBlogPostsTeaser {
+        id
+        sectionTitle
+        posts(pagination: { limit: 3 }) {
+          id
+          title
+          link
+          summary          
+          image {
+            alternativeText
+            caption
+            url
+          }
+        }
+      }
+      ... on ComponentSectionsFaqSection {
+        id
+        sectionTitle
+        faqs {
+          id
+          image {
+            alternativeText
+            caption
+            url
+          }
+          summary
+          title
+        }
+      }
+      ... on ComponentSectionsCategoryHighlight {
+        id
+        sectionTitle
+        categories {
+          description
+          id
+          image {
+            alternativeText
+            caption
+            url
+          }
+          link
+          name
+        } 
+      }
+      ... on ComponentSectionsRichTextBlock {
+        id
+        content
+      }
+      ... on ComponentSectionsProductSlider {
+        id
+        slides {
+          image {
+            caption
+            alternativeText
+            url
+          }
+          link
+          name
+        }
+        title
+      }
+      ... on ComponentSharedCategoryCard {
+        description
+        id
+        image {
+          caption
+          alternativeText
+          name
+          url
+        }
+        link
+        name
+      }
+    }
+  }
+} 

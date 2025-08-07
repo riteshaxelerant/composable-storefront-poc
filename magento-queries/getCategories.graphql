@@ -1,0 +1,17 @@
+query GetCategories{
+    categoryList {
+        id,
+        uid,
+        level,
+        name,
+        url_path,
+        children {
+        id,
+        uid,
+        level,
+        name,
+        url_path,
+        children { id,uid, level, name, url_path }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+query GetCategory($slug: String!) {
+  categories(filters: { slug: { eq: $slug } }) {
+    documentId
+    name
+    slug
+    description
+  }
+} 

@@ -1,0 +1,24 @@
+query GetArticles($limit: Int, $start: Int, $status: PublicationStatus) {
+  articles(
+    pagination: { limit: $limit, start: $start },
+    status: $status,
+    sort: "publishedAt:desc"
+  ) {
+    documentId
+    title
+    description
+    slug
+    publishedAt
+    cover {
+      name
+      alternativeText
+      url
+    }
+    author {      
+      name
+    }
+    category {      
+      name
+    }
+  }
+} 

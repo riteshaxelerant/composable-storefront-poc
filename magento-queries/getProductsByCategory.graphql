@@ -1,0 +1,8 @@
+query GetProductsByCategory($categoryUid: String!) {
+    products(filter: { category_uid: { eq: "Mw==" } }) {
+    items {
+            id,
+            name
+        }
+    }
+}

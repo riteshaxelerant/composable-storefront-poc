@@ -1,0 +1,12 @@
+query GetAuthors($limit: Int, $start: Int) {
+  authors(pagination: { limit: $limit, start: $start }, sort: "name:asc") {
+    documentId
+    name
+    email
+    avatar {
+      alternativeText
+      caption
+      url
+    }
+  }
+} 

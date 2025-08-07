@@ -1,0 +1,10 @@
+query GetAuthor($email: String!) {
+  authors(filters: { email: { eq: $email } }) {    
+    name
+    email
+    avatar {
+      url
+      alternativeText
+    }
+  }
+} 

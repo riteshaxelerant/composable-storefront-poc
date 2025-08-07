@@ -1,0 +1,15 @@
+query GetGlobal {
+  global {
+    siteName
+    siteDescription
+    favicon {
+      url
+      alternativeText
+    }
+    defaultSeo {
+      id
+      metaDescription
+      metaTitle
+    }
+  }
+} 
