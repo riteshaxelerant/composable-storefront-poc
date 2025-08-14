@@ -29,7 +29,9 @@ const strapiAuthLink = setContext((_, { headers }) => {
 
 // Strapi HTTP link
 const strapiHttpLink = createHttpLink({
-  uri: '/api/strapi/graphql', // Use our API route proxy
+  uri: typeof window === 'undefined' 
+    ? `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/strapi/graphql`
+    : '/api/strapi/graphql',
   credentials: 'same-origin',
 });
 

@@ -1,8 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { DefaultLayout } from '@/layouts/DefaultLayout';
 import { Card, CardContent, CardHeader } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description: 'Composable commerce storefront powered by Magento and Strapi',
+};
 
 export default function HomePage() {
   return (
@@ -23,16 +29,16 @@ export default function HomePage() {
             GraphQL backends into a unified shopping experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                          <Link href="/categories">
-                <Button size="lg" variant="secondary">
-                  Browse Categories
-                </Button>
-              </Link>
-              <Link href="/blog">
-                <Button size="lg" variant="outline" className="bg-white text-primary-600 hover:bg-primary-50">
-                  Read Our Blog
-                </Button>
-              </Link>
+            <Link href="/categories">
+              <Button size="lg" variant="secondary">
+                Browse Categories
+              </Button>
+            </Link>
+            <Link href="/blog">
+              <Button size="lg" variant="outline" className="bg-white text-primary-600 hover:bg-primary-50">
+                Read Our Blog
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -104,13 +110,13 @@ export default function HomePage() {
             <Card>
               <CardHeader>
                 <h4 className="text-lg font-semibold text-secondary-900">
-                  Modern UI Components
+                  Unified Search
                 </h4>
               </CardHeader>
               <CardContent>
                 <p className="text-secondary-600">
-                  Beautiful, responsive components built with Tailwind CSS and 
-                  following modern design patterns.
+                  Search across multiple content sources with intelligent ranking 
+                  and unified result presentation.
                 </p>
               </CardContent>
             </Card>
@@ -118,13 +124,13 @@ export default function HomePage() {
             <Card>
               <CardHeader>
                 <h4 className="text-lg font-semibold text-secondary-900">
-                  Production Ready
+                  Performance Optimized
                 </h4>
               </CardHeader>
               <CardContent>
                 <p className="text-secondary-600">
-                  Built with TypeScript, proper error handling, performance optimization, 
-                  and SEO best practices.
+                  Built with Next.js 14, featuring server-side rendering, 
+                  static generation, and optimized bundle splitting.
                 </p>
               </CardContent>
             </Card>
@@ -132,74 +138,82 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Demo Links Section */}
+      {/* How It Works Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h3 className="text-2xl font-bold text-secondary-900 text-center mb-12">
-            Try These Demo Routes
+            How It Works
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="text-center p-6">
-                <h4 className="font-semibold text-secondary-900 mb-2">Magento Product</h4>
-                <p className="text-sm text-secondary-600 mb-4">
-                  Sample product page from Magento
-                </p>
-                <Link href="/categories">
-                  <Button size="sm" className="w-full">
-                    View Categories
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="text-center p-6">
-                <h4 className="font-semibold text-secondary-900 mb-2">Magento Category</h4>
-                <p className="text-sm text-secondary-600 mb-4">
-                  Sample category page from Magento
-                </p>
-                <Link href="/categories">
-                  <Button size="sm" className="w-full">
-                    View Categories
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="text-center p-6">
-                <h4 className="font-semibold text-secondary-900 mb-2">Magento CMS</h4>
-                <p className="text-sm text-secondary-600 mb-4">
-                  Sample CMS page from Magento
-                </p>
-                <Link href="/cms/about-us">
-                  <Button size="sm" className="w-full">
-                    View CMS Page
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="text-center p-6">
-                <h4 className="font-semibold text-secondary-900 mb-2">Strapi Page</h4>
-                <p className="text-sm text-secondary-600 mb-4">
-                  Sample page from Strapi CMS
-                </p>
-                <Link href="/blog">
-                  <Button size="sm" className="w-full">
-                    Read Blog
-                  </Button>
-                </Link>
-              </CardContent>
-            </Card>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-primary-600">1</span>
+              </div>
+              <h4 className="text-lg font-semibold text-secondary-900 mb-2">
+                URL Resolution
+              </h4>
+              <p className="text-secondary-600">
+                Each request is analyzed by middleware that determines the appropriate 
+                data source and content type.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-primary-600">2</span>
+              </div>
+              <h4 className="text-lg font-semibold text-secondary-900 mb-2">
+                Data Fetching
+              </h4>
+              <p className="text-secondary-600">
+                Content is fetched from the appropriate backend using optimized 
+                GraphQL queries and composable hooks.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-primary-600">3</span>
+              </div>
+              <h4 className="text-lg font-semibold text-secondary-900 mb-2">
+                Unified Rendering
+              </h4>
+              <p className="text-secondary-600">
+                Content is rendered using a unified component system that provides 
+                consistent styling and user experience.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-    </div>
+      {/* CTA Section */}
+      <section className="py-16 bg-primary-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h3 className="text-3xl font-bold text-white mb-4">
+            Ready to Explore?
+          </h3>
+          <p className="text-xl text-primary-100 mb-8">
+            Start browsing our catalog or dive into our latest blog posts to see 
+            the composable architecture in action.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/products">
+              <Button size="lg" variant="secondary">
+                View Products
+              </Button>
+            </Link>
+            <Link href="/blog">
+              <Button size="lg" variant="outline" className="bg-white text-primary-600 hover:bg-primary-50">
+                Read Blog
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      </div>
     </DefaultLayout>
   );
-} 
+}

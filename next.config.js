@@ -19,7 +19,7 @@ const nextConfig = {
       },
     ],
   },
-  // Using pages directory for this POC
+  // App Router is now enabled by default in Next.js 14
 }
 
 module.exports = nextConfig 

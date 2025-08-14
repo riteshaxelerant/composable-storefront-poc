@@ -30,7 +30,9 @@ const magentoAuthLink = setContext((_, { headers }) => {
 
 // Magento HTTP link - use our API route to handle SSL certificate bypass
 const magentoHttpLink = createHttpLink({
-  uri: '/api/magento/graphql',
+  uri: typeof window === 'undefined'
+    ? `${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/magento/graphql`
+    : '/api/magento/graphql',
   credentials: 'same-origin',
 });
 
