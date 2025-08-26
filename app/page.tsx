@@ -134,6 +134,27 @@ export default function HomePage() {
                 </p>
               </CardContent>
             </Card>
+
+            <Card>
+              <CardHeader>
+                <h4 className="text-lg font-semibold text-secondary-900">
+                  Kitchen Estimator
+                </h4>
+              </CardHeader>
+              <CardContent>
+                <p className="text-secondary-600">
+                  Interactive kitchen quote calculator with dynamic pricing, 
+                  color variants, and real-time cost estimation.
+                </p>
+                <div className="mt-3">
+                  <Link href="/kitchen-estimator">
+                    <Button size="sm" variant="outline">
+                      Try Kitchen Estimator
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

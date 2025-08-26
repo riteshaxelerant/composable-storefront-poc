@@ -57,6 +57,11 @@ export const strapiClient = new ApolloClient({
               return incoming;
             },
           },
+          kitchenEstimator: {
+            merge(existing = [], incoming) {
+              return incoming;
+            },
+          },
         },
       },
     },

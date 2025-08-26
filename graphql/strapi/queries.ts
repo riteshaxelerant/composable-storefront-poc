@@ -266,3 +266,50 @@ export const GET_GLOBAL = gql`
     }
   }
 `;
+
+// Get kitchen estimator data
+export const GET_KITCHEN_ESTIMATOR = gql`
+  query GetKitchenEstimator {
+    kitchenEstimator {
+      documentId
+      title
+      description
+      questions {
+        ... on ComponentQuestionnaireQuestions {
+          title
+          toolTip
+          description
+          questionType
+          questionOptions {
+            id
+            title
+            description
+            price
+            hasQuantity
+            units
+            selectOptions {
+              label
+              price
+              value
+            }
+            colorVariants {
+              colorCode
+              colorName
+              price
+              variationImage {
+                alternativeText
+                url
+                name
+              }
+            }
+            qImage {
+              url
+              name
+              alternativeText
+            }
+          }
+        }
+      }    
+    }
+  }
+`;
