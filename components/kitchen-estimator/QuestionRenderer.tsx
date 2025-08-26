@@ -2,6 +2,9 @@
 
 import React from 'react';
 import { RangeSelection } from './question-types/RangeSelection';
+import { UnitsSelection } from './question-types/UnitsSelection';
+import { WorktopSelection } from './question-types/WorktopSelection';
+import { SinkSelection } from './question-types/SinkSelection';
 
 interface QuestionRendererProps {
   question: any;
@@ -12,10 +15,10 @@ export function QuestionRenderer({ question, onSelectionChange }: QuestionRender
   // Component mapping based on question type
   const componentMap: Record<string, React.ComponentType<any>> = {
     'range': RangeSelection,
+    'units': UnitsSelection,
+    'worktop_style': WorktopSelection,
+    'sink_type': SinkSelection,
     // Add other question types here as we build them
-    // 'units': UnitSelection,
-    // 'worktop_style': WorktopSelection,
-    // 'sink_type': SinkSelection,
     // 'storage_type': StorageSelection,
   };
 
