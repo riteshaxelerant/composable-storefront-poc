@@ -5,6 +5,7 @@ import { RangeSelection } from './question-types/RangeSelection';
 import { UnitsSelection } from './question-types/UnitsSelection';
 import { WorktopSelection } from './question-types/WorktopSelection';
 import { SinkSelection } from './question-types/SinkSelection';
+import { StorageSelection } from './question-types/StorageSelection';
 
 interface QuestionRendererProps {
   question: any;
@@ -18,8 +19,7 @@ export function QuestionRenderer({ question, onSelectionChange }: QuestionRender
     'units': UnitsSelection,
     'worktop_style': WorktopSelection,
     'sink_type': SinkSelection,
-    // Add other question types here as we build them
-    // 'storage_type': StorageSelection,
+    'storage_type': StorageSelection,
   };
 
   const Component = componentMap[question.questionType];
