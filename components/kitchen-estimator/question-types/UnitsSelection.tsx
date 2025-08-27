@@ -164,26 +164,7 @@ export function UnitsSelection({ question, onSelectionChange }: UnitsSelectionPr
         ))}
       </div>
 
-      {/* Selection Summary */}
-      {selectedUnit && (
-        <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-          <h4 className="font-semibold text-blue-900 mb-2">Current Selection:</h4>
-          {(() => {
-            const selected = question.questionOptions.find(opt => opt.id === selectedUnit);
-            return selected ? (
-              <div className="text-blue-800">
-                <p><strong>{selected.title}</strong></p>
-                {selected.price && (
-                  <p>Price: £{selected.price.toLocaleString()}</p>
-                )}
-                {selected.units && (
-                  <p>Units: {selected.units}</p>
-                )}
-              </div>
-            ) : null;
-          })()}
-        </div>
-      )}
+
     </div>
   );
 }

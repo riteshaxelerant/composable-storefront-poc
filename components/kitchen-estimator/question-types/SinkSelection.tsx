@@ -236,32 +236,7 @@ export function SinkSelection({ question, onSelectionChange }: SinkSelectionProp
         ))}
       </div>
 
-      {/* Selection Summary */}
-      {selectedSink && (
-        <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-          <h4 className="font-semibold text-blue-900 mb-2">Current Selection:</h4>
-          {(() => {
-            const selected = getSelectedSink();
-            const selectedOption = selected?.selectOptions?.find(opt => opt.value === selectedOptions[selectedSink]);
-            if (!selected) return null;
 
-            let totalPrice = selected.price || 0;
-            if (selectedOption) {
-              totalPrice += selectedOption.price;
-            }
-
-            return (
-              <div className="text-blue-800">
-                <p><strong>{selected.title}</strong></p>
-                {selectedOption && (
-                  <p>Configuration: {selectedOption.label}</p>
-                )}
-                <p>Total Price: £{totalPrice.toLocaleString()}</p>
-              </div>
-            );
-          })()}
-        </div>
-      )}
     </div>
   );
 }

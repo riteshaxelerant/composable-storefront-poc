@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useKitchenEstimator } from '@/composables/strapi/useKitchenEstimator';
 import { LoadingSpinner } from '@/components/ui/LoadingSpinner';
 import { QuestionRenderer } from '../kitchen-estimator/QuestionRenderer';
+import { SelectionsSummary } from '../kitchen-estimator/SelectionsSummary';
 
 export function KitchenEstimator() {
   const { kitchenEstimator, loading, error } = useKitchenEstimator();
@@ -65,20 +66,13 @@ export function KitchenEstimator() {
       ))}
 
       {/* Selections Summary */}
-      {Object.keys(selections).length > 0 && (
-        <div className="mt-8 p-6 bg-gray-50 rounded-lg">
-          <h3 className="text-xl font-semibold text-secondary-900 mb-4">
-            Your Selections Summary
-          </h3>
-          <div className="space-y-2">
-            {Object.entries(selections).map(([questionType, selection]) => (
-              <div key={questionType} className="text-sm">
-                <strong className="capitalize">{questionType}:</strong> {JSON.stringify(selection)}
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
+      <SelectionsSummary 
+        selections={kitchenEstimator.questions?.map((question: any) => ({
+          questionType: question.questionType,
+          questionTitle: question.title,
+          selection: selections[question.questionType] || null
+        })) || []}
+      />
     </div>
   );
 }

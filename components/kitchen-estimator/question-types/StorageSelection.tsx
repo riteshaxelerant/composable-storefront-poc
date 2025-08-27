@@ -255,27 +255,7 @@ export function StorageSelection({ question, onSelectionChange }: StorageSelecti
         })}
       </div>
 
-      {/* Selection Summary */}
-      {selectedStorage && (
-        <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
-          <h4 className="font-semibold text-blue-900 mb-2">Current Selection:</h4>
-          {(() => {
-            const selected = getSelectedStorage();
-            const quantity = quantities[selectedStorage] || 1;
-            const unitPrice = selected?.price || 0;
-            const totalPrice = unitPrice * quantity;
 
-            return selected ? (
-              <div className="text-blue-800">
-                <p><strong>{selected.title}</strong></p>
-                <p>Quantity: {quantity}</p>
-                <p>Unit Price: £{unitPrice.toLocaleString()}</p>
-                <p className="font-semibold">Total Price: £{totalPrice.toLocaleString()}</p>
-              </div>
-            ) : null;
-          })()}
-        </div>
-      )}
     </div>
   );
 }
