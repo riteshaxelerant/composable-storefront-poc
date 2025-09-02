@@ -91,6 +91,7 @@ query GetPage($slug: String!) {
           }
           summary
           title
+          link
         }
       }
       ... on ComponentSectionsCategoryHighlight {

@@ -68,10 +68,8 @@ export default async function SlugPage({ params }: SlugPageProps) {
         description={metadata?.description || content.seo?.metaDescription}
         source="strapi"
       >
-        <div className="min-h-screen bg-secondary-50 py-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <StrapiPage slug={slug} />
-          </div>
+        <div className="min-h-screen">
+          <StrapiPage slug={slug} />
         </div>
       </DefaultLayout>
     );
