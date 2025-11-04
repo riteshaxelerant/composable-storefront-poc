@@ -4,6 +4,9 @@ import type { Metadata } from 'next';
 import { DefaultLayout } from '@/layouts/DefaultLayout';
 import { Card, CardContent, CardHeader } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { CarouselDemo } from '@/components/ui/CarouselDemo';
+import { HowToBuyDemo } from '@/components/ui/HowToBuyDemo';
+import { HeroSliderDemo } from '@/components/ui/HeroSliderDemo';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -17,6 +20,9 @@ export default function HomePage() {
       description="Composable commerce storefront powered by Magento and Strapi"
     >
       <div className="min-h-screen bg-secondary-50">
+
+      {/* Hero Slider - Full viewport width */}
+      <HeroSliderDemo />
 
       {/* Hero Section */}
       <section className="py-12 bg-gradient-to-r from-primary-600 to-primary-700">
@@ -42,6 +48,14 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Carousel Demo Section */}
+      <section className="py-16 bg-white">
+        <CarouselDemo />
+      </section>
+
+      {/* How to Buy Section */}
+      <HowToBuyDemo />
 
       {/* Features Section */}
       <section className="py-16">
